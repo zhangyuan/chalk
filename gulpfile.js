@@ -8,6 +8,7 @@ var gulp = require("gulp"),
   sass = require('gulp-sass'),
   rev = require('gulp-rev'),
   jasmine = require('gulp-jasmine'),
+  Server = require('karma').Server,
   del = require('del');
 
 gulp.task('connect', function(){
@@ -69,4 +70,11 @@ gulp.task('package', function(){
 gulp.task('test', function(){
   return gulp.src('spec/**/*_spec.js')
     .pipe(jasmine({verbose: true}))
+})
+
+gulp.task('karma', function(done){
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
 })

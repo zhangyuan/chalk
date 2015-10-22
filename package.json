@@ -1,8 +1,7 @@
 {
   "name": "chalk",
   "version": "0.0.0",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "del": "~2.0.2",
     "gulp": "~3.9.0",
@@ -15,7 +14,13 @@
     "gulp-uglify": "~1.4.2",
     "gulp-zip": "~3.0.2",
     "gulp-sass": "~2.0.4",
-    "gulp-jasmine": "^2.1.0"
+    "gulp-jasmine": "^2.1.0",
+    "karma": "^0.13.12",
+    "jasmine-core": "^2.3.4",
+    "karma-jasmine": "^0.3.6",
+    "requirejs": "^2.1.20",
+    "karma-requirejs": "^0.2.2",
+    "karma-chrome-launcher": "^0.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
