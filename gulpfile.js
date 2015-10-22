@@ -15,13 +15,13 @@ gulp.task('connect', function(){
   return connect.server({
     root: ['app']
   })
-})
+});
 
 gulp.task('connect-build', function(){
   return connect.server({
     root: ['build']
   })
-})
+});
 
 gulp.task('html', function(){
   return gulp.src(["app/*.html"])
@@ -29,20 +29,20 @@ gulp.task('html', function(){
       'css':'stylesheets/application.css'
     }))
     .pipe(gulp.dest("build"));
-})
+});
 
 gulp.task('js', function(){
   return gulp.src(["app/javascripts/*"])
     .pipe(uglify())
     .pipe(gulp.dest("build/javascripts"))
-})
+});
 
 gulp.task('css', function(){
   return gulp.src(["app/stylesheets/*"])
     .pipe(concat('application.css'))
     .pipe(minifyCss())
     .pipe(gulp.dest("build/stylesheets"))
-})
+});
 
 gulp.task('watch', function(){
   gulp.watch(['app/sass/*.scss'], ['sass']);
@@ -58,23 +58,23 @@ gulp.task('build', ['html', 'js', 'css']);
 
 gulp.task('clean', function(cb){
   return del(['build/**'], cb)
-})
+});
 
 gulp.task('package', function(){
   return gulp.src('build/**/*')
     .pipe(zip('archive.zip'))
     .pipe(rev())
     .pipe(gulp.dest('dist'));
-})
+});
 
 gulp.task('test', function(){
   return gulp.src('spec/**/*_spec.js')
     .pipe(jasmine({verbose: true}))
-})
+});
 
 gulp.task('karma', function(done){
   new Server({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
   }, done).start();
-})
+});
