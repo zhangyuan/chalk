@@ -68,11 +68,6 @@ gulp.task('package', function(){
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('test', function(){
-  return gulp.src('spec/**/*_spec.js')
-    .pipe(jasmine({verbose: true}))
-});
-
 gulp.task('karma', function(done){
   new Server({
     configFile: __dirname + '/karma.conf.js',
